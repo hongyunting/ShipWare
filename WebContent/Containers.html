@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Remote Access of Stowage Planning Functions</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../ShipWare/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <!-- MetisMenu CSS -->
+    <link href="../ShipWare/css/metisMenu.min.css" rel="stylesheet" media="screen">
+
+    <!-- Custom CSS -->
+    <link href="../ShipWare/css/sb-admin-2.css" rel="stylesheet" media="screen">
+
+    <!-- Morris Charts CSS -->
+    <link href="../ShipWare/css/morris.css" rel="stylesheet" media="screen">
+
+    <!-- Custom Fonts -->
+    <link href="../ShipWare/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="screen">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+   
+    
+    
+</head>
+<body onload="inputValues">
+	<div id="wrapper">
+		<!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="ViewContainer.jsp"><img src="images/Shipware.png" style="max-width: 123px;margin-top: -12px;margin-left: 15px;"/>
+                </a>
+            </div>
+            <!-- /.navbar-header -->
+
+			<ul class="nav navbar-top-links navbar-left">
+				<li>
+					<a class="dropdown-toggle" href="ViewContainer.jsp">
+                        <i class="fa fa-th fa-fw"></i> CONTAINER</i>
+                    </a>
+				</li>
+				<li>
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> ACCOUNT</i>
+                    </a>
+				</li>
+				<li>
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-chain fa-fw"></i> REGISTRIES</i>
+                    </a>
+				</li>
+				
+			</ul>
+            <ul class="nav navbar-top-links navbar-right"> 
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            
+            </nav>
+        
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header">Add New Container </h3>
+					<label>Connection:</label><input type="text" class="form-control" id="echoText"><br>
+				
+					
+					<table class="table" style="text-align:center;">
+					    <thead>
+					      <tr>
+					      	<th></th>
+					        <th style="text-align:center;">Foods</th>
+					        <th style="text-align:center;">Live Stocks</th>
+					        <th style="text-align:center;">Products</th>
+					        <th style="text-align:center;">Fragile</th>
+					      </tr>
+					    </thead>
+					    <tbody>
+					      <tr>
+					      	<td>Singapore</td>
+					        <td><input type="text" class="form-control" id="sgFood"></td>
+					        <td><input type="text" class="form-control" id="sgLS"></td>
+					        <td><input type="text" class="form-control" id="sgP"></td>
+					        <td><input type="text" class="form-control" id="sgF"></td>
+					      </tr>
+					      <tr>
+					      	<td>Malaysia</td>
+					        <td><input type="text" class="form-control" id="myFood"></td>
+					        <td><input type="text" class="form-control" id="myLS"></td>
+					        <td><input type="text" class="form-control" id="myP"></td>
+					        <td><input type="text" class="form-control" id="myF"></td>
+					      </tr>
+					    </tbody>
+					    </table>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            
+            <div class="row">
+            	<div class="panel panel-default">
+                	<div class="panel-heading">
+                    	Container Information
+                    </div>
+                     <form id="message-form" method="post" action="#" name="message-form">
+  	                    <div class="panel-body">
+	                    	<div class="form-group">
+	                        	<label>Container Name</label>
+	                            <input class="form-control" placeholder="Enter Container Name" name="cName" id="cName" value="cName">
+	                    	</div>
+	                    	<div class="form-group">
+	                        	<label>Type of Container</label>
+                                            <select class="form-control" name="cType" id="cType">
+                                                <option value="foods">Foods</option>
+                                                <option value="liveStocks">Live Animals</option>
+                                                <option value="products">Products</option>
+                                                <option value="fragile">Fragile</option>
+                                            </select>
+	                    	</div>
+	                    	<div class="form-group">
+	                        	<label>Destination</label>
+	                            <input class="form-control" placeholder="Enter Destination" name= "destination" id="destination" value="destination">
+	                    	</div>
+	                    	<label>Weight</label>
+	                    	<div class="form-group input-group">
+	                            <input type="text" class="form-control" name="cWeight" id="cWeight" value="100">
+	                            <span class="input-group-addon">KG</span>
+	                    	</div>
+	                    	<div class="form-group">
+	                        	<label>User</label>
+	                            <input class="form-control" placeholder="Enter Your Name" name="uName" id="uName" value="uName">
+	                    	</div>
+	                    	<input type="submit" name="submit" onclick="wsSendMessage();" value="Add Container" class="btn btn-success" id="submitBtn"/>
+	                    </div>
+                      </form>
+                  </div>
+
+				
+			</div>
+        </div>
+	</div>
+	<script type="text/javascript">
+
+		window.onload = function(){
+			
+ 			var form = document.getElementById("message-form");
+			
+			var randU = Math.floor((Math.random() * 1000) + 1);
+			document.getElementById("cName").value = "test"+randU;
+			
+			var myArray = ['Singapore', 'Malaysia'];   
+			var rand = myArray[Math.floor(Math.random() * myArray.length)];
+			document.getElementById("destination").value = rand;
+			
+			var x = Math.floor((Math.random() * 1000) + 100);
+			document.getElementById("cWeight").value = x;
+			
+			var myArray = ['User', 'Admin'];   
+			var rand = myArray[Math.floor(Math.random() * myArray.length)];
+			document.getElementById("uName").value = rand;
+			
+/*  			setTimeout(function(){
+				   document.getElementById("submitBtn").click()
+				 }, 1000); */
+		
+		};
+	
+		var webSocket = new WebSocket("ws://localhost:8081/ShipWare/websocketendpoint");
+		if (!window.WebSocket) alert("WebSocket not supported by this browser");
+		
+		var validate;
+		
+		webSocket.onopen = function(message) {
+			wsOpen(message);
+		};
+		webSocket.onmessage = function(message) {
+			wsGetMessage(message);
+		};
+		webSocket.onclose = function(message) {
+			wsClose(message);
+		};
+		webSocket.onerror = function(message) {
+			wsError(message);
+		};
+		
+		function wsOpen() {
+			echoText.value += "Connected ... \n";
+		}
+		
+ 		function wsSendMessage() {
+
+			var containerName = document.getElementById("cName").value;
+			var selection = document.getElementById("cType");
+			var containerType = selection.options[selection.selectedIndex].value;
+			var destination = document.getElementById("destination").value;
+			var containerWeight = document.getElementById("cWeight").value;
+			var user = document.getElementById("uName").value;
+			
+		    var json = { 
+		        'cName' : containerName,
+		        'cType' : containerType,
+		        'destination' : destination,
+		        'cWeight' : containerWeight,
+		        'user' : user
+		      };
+		      webSocket.send(JSON.stringify(json));
+ 		      
+		} 
+		
+ 		function wsCloseConnection(message) {
+ 			webSocket.close();
+		} 
+		function wsGetMessage(message) {
+			sgFood.value = message.data;
+		}
+		function wsClose(message) {
+			echoText.value += "No connection ... \n";
+		}
+		function wserror(message) {
+			echoText.value += "Error ... \n";
+		}
+		
+		
+	</script>
+
+	
+	    <!-- jQuery -->
+    <script src="../ShipWare/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../ShipWare/vendor/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../ShipWare/vendor/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../ShipWare/vendor/raphael.min.js"></script>
+    <script src="../ShipWare/vendor/morris.min.js"></script>
+    <script src="../ShipWare/data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../ShipWare/dist/sb-admin-2.min.js"></script> 
+</body>
+</html>
+
+
